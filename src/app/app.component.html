@@ -1,0 +1,21 @@
+<div>
+  <div class="drivers">
+    @for (driver of drivers; track driver.id; let index = $index; let first = $first; let last = $last; let even = $even; let odd = $odd) {
+      <app-driver 
+      [driver] = "driver"
+      [index] = "index"
+      [class.is-first] = "first"
+      [class.is-last] = "last"
+      [class.is-odd] = "odd"
+      [class.is-even] = "even"
+      (driverSelected) = "onDriverSelected($event)"
+
+      />
+    }
+    @empty {
+      <h1>No Driver found</h1>
+    }
+  </div>
+</div>
+
+<router-outlet></router-outlet>

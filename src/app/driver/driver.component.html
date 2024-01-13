@@ -1,0 +1,49 @@
+@if(driver){
+@if (driver.points>180) {
+<div class=course-card [ngClass]="cardClasses()" [ngStyle]="cardStyle()">
+    <div class="course-title">
+        {{index + 1}}. {{driver.name}}
+    </div>
+
+    @if (driver.iconUrl) {
+    <img width="300" alt="Angular Logo" [src]="driver.iconUrl" alt="">
+    }
+    @else {
+    <p>No Image Is Available</p>
+    }
+    <div class="course-description">
+        {{driver.longDescription}}
+    </div>
+
+    <div [style.margin]="'10px'">
+        Points: {{driver.points}}
+    </div>
+
+    <div class="course-category">
+        @switch (driver.category) {
+
+        @case ("BEGGINER") {
+        <div class="category">Begginer</div>
+        }
+        @case ("MEDIUM") {
+        <div class="category">Intermediate</div>
+        }
+        @case ("ADVANCED") {
+        <div class="category">Advanced</div>
+        }
+        @case ("MAX") {
+        <div class="category">Max</div>
+        }
+        @default {
+        <div class="category">Unknown</div>
+        }
+        }
+    </div>
+
+    <button (click)="onDriverViewed()">
+        Click me
+    </button>
+
+</div>
+}
+}
